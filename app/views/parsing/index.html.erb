@@ -1,0 +1,9 @@
+<img src="http://www.banki.ru/static/common/common/img/bankiru-logo.svg">
+    <% @link.each do |news| %>
+        <% news = Nokogiri::HTML(open(news), nil, 'UTF-8') %>
+        <p><%= news.css('.news__info > span:nth-child(1) > time:nth-child(1)').text %></p>
+        <p><%= news.css('.header-h0').text %></p>
+        <p><%= news.css('.article-text').text %></p>
+        </br>
+    <% end %>
+
